@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: demo2
+
+  # ---- H2 Database (default for easy testing) ----
+  datasource:
+    url: jdbc:h2:mem:demodb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+
+server:
+  port: 8080
+
+# JWT
+jwt:
+  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+  expiration: 86400000  # 24 hours
+
+# ArifPay
+arifpay:
+  api-key: ${ARIFPAY_API_KEY:your-api-key}
+  base-url: ${ARIFPAY_BASE_URL:https://gateway.arifpay.org}
+  checkout-url: ${ARIFPAY_CHECKOUT_URL:https://gateway.arifpay.org/api/v1/checkout}
+
+# Swagger
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
+# Actuator
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
