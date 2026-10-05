@@ -21,13 +21,21 @@ public class AuthService {
     private final UserMapper userMapper;
 
     public AuthResponse register(AuthRequest request) {
+        return createUser(request, Role.USER);
+    }
+
+    public AuthResponse registerAdmin(AuthRequest request) {
+        return createUser(request, Role.ADMIN);
+    }
+
+    private AuthResponse createUser(AuthRequest request, Role role) {
         if (userRepository.findByUsername(request.getUsername()).isPresent()) {
             throw new RuntimeException("Username already exists");
         }
 
         User user = userMapper.toEntity(request);
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        user.setRole(Role.USER);
+        user.setRole(role);
 
         userRepository.save(user);
 
