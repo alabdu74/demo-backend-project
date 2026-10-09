@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors — 11 shades from lightest to darkest */
+  --color-brand-50:  #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-200: #bfdbfe;
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6;  /* the main brand color */
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+  --color-brand-800: #1e40af;
+  --color-brand-900: #1e3a8a;
+  --color-brand-950: #172554;
+
+  /* Semantic colors — named by meaning, not appearance */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-danger:  #ef4444;
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Custom spacing */
+  --spacing-sidebar: 16rem;
+  --spacing-header:  4rem;
+
+  /* Custom border radius */
+  --radius-card: 0.75rem;
+}
